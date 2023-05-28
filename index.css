@@ -71,7 +71,8 @@ a[explanation]:hover:after {
     background-color: var(--screenBlack);
     border: 0.3rem solid var(--offWhite);
     box-sizing: border-box;
-    left: calc(100% + 1rem);
+    left: 75%;
+    top: 100%;
     z-index: 100;
 }
 
@@ -96,7 +97,7 @@ body {
 }
 
 div {
-    width: 80ch;
+    width: 60ch;
     padding: 1rem;
     margin-right: 2rem;
 }
