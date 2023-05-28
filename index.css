@@ -1,0 +1,141 @@
+/* [ Fonts ] */
+
+@font-face {
+    font-family: 'Jackeyfont';
+    src: url('jackeyfont.woff');
+}
+
+.J { font-family: 'Jackeyfont'; }
+
+@font-face {
+    font-family: 'UVGA';
+    src: url('UVGA16.woff');
+}
+
+.UVGA { font-family: 'UVGA'; }
+
+/* [ Palette ] */
+
+:root {
+    --screenBlack:  #111111;
+    --offWhite:     #f3f3f3;
+}
+
+/* [ Element Formatting ] */
+
+* { box-sizing: border-box; }
+
+html {
+    font-size: 1.125vh;
+    line-height: 1.3;
+}
+
+p, a { font-family: 'UVGA'; }
+
+h2 {
+    font-size: large;
+    background-color: var(--offWhite);
+    color: var(--screenBlack);
+}
+
+h2:before, h2:after { content: '\00a0'; }
+
+h1, h2 { font-family: 'JackeyFont'; }
+
+h1, h2, p, a { text-rendering: geometricPrecision; }
+
+h1, p, a { margin: 0 0 1rem 0; }
+
+ul { 
+    list-style-type: "> ";
+    font-family: 'UVGA';
+}
+
+a {
+    position: relative;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+a:hover {
+    background-color: var(--offWhite);
+    color: var(--screenBlack);
+}
+
+a[explanation]:hover:after {
+    content: attr(explanation);
+    position: absolute;
+    width: 40ch;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: var(--offWhite);
+    background-color: var(--screenBlack);
+    border: 0.3rem solid var(--offWhite);
+    box-sizing: border-box;
+    left: calc(100% + 1rem);
+    z-index: 100;
+}
+
+body {
+    background: var(--screenBlack);
+    color: var(--offWhite);
+    cursor: crosshair;
+    box-sizing: border-box;
+    max-height: calc(100vh - 4rem);
+    margin: 2rem;
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: block;
+    font-size: 1.8rem;
+
+    /* Pixel-Perfect Image Rendering */
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+}
+
+div {
+    width: 80ch;
+    padding: 1rem;
+    margin-right: 2rem;
+}
+
+::selection {
+    background-color: var(--offWhite);
+    color: var(--screenBlack);
+}
+
+.highlight {
+    background-color: var(--offWhite);
+    color: var(--screenBlack);
+}
+
+.highlight:before, .highlight:after { content: '\00a0'; }
+
+/* [ Basic Formatting ] */
+
+.modal:not(:target) { display: none; }
+
+.flex {
+    flex-flow: column wrap;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}  
+
+/* [ Conditional Formatting ] */
+
+@media (pointer: coarse) {
+
+    body { overflow-y: auto; }
+
+    h1, h2 { text-align: center;}
+    
+    div {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .flex { display: block; }
+}
